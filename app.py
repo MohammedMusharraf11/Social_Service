@@ -1,4 +1,5 @@
 import streamlit as st
+from csv import DictWriter
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 
@@ -6,11 +7,9 @@ st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="center
 
 st.title("Survey Of Voters")
 
-spreadsheet_id = "1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
-conn = st.connection("gsheets", type=GSheetsConnection, spreadsheet_id=spreadsheet_id)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
-# Read existing data from Google Sheets
-existing_data = conn.read(worksheet="Data", usecols=list(range(6)), ttl=5)
+existing_data = conn.read(worksheet="Data", usecols=list(range(10)), ttl=5)  # Read all 10 columns
 existing_data = existing_data.dropna(how="all")
 
 with st.form(key="Voters_Form"):
@@ -19,7 +18,7 @@ with st.form(key="Voters_Form"):
     voters_name = st.text_input(label="Voters Name")
     no_of_voters = st.text_input(label="Total No of Voters")
     part_no = st.text_input(label="Enter Part Number")
-    part_name = st.selectbox("Select Part Name", ["ILMA School", "Newton School", " "])
+    part_name = st.selectbox("Select Part Name", ["ILMA School", "Newton School"," "])
     status = st.selectbox("Select Status", ["Active", "Inactive"])
     ph_no = st.text_input(label="Enter Phone Number")
     serial_no = st.text_input(label="Enter Serial Number")
