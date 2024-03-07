@@ -8,14 +8,14 @@ st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="center
 st.title("Survey Of Voters")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
+# Assuming you have a variable named spreadsheet_id containing the actual spreadsheet ID
+spreadsheet_id = "575972039"
+existing_data = conn.read(spreadsheet_id=spreadsheet_id, worksheet="Sheet2", usecols=list(range(10)), ttl=5)
 
-existing_data = conn.read(worksheet="Sheet2", usecols=list(range(10)), ttl=5)  # Read all 10 columns
+
+
 existing_data = existing_data.dropna(how="all")
 
-PART_NO = [
-    "100",
-    "200"
-]
 
 with st.form(key="Voters_Form"):
     building_name = st.text_input(label="Building Name/No")
