@@ -9,11 +9,7 @@ st.title("Survey Of Voters")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 # Assuming you have a variable named spreadsheet_id containing the actual spreadsheet ID
-spreadsheet_id = "575972039"
-existing_data = conn.read(spreadsheet_id=spreadsheet_id, worksheet="Sheet2", usecols=list(range(10)), ttl=5)
-
-
-
+existing_data = conn.read(worksheet="Sheet2", usecols=list(range(6)), ttl=5)
 existing_data = existing_data.dropna(how="all")
 
 
