@@ -8,8 +8,9 @@ st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="center
 st.title("Survey Of Voters")
 
 conn = st.connection("gsheets", type=GSheetsConnection)
-# Assuming you have a variable named spreadsheet_id containing the actual spreadsheet ID
-existing_data = conn.read(worksheet="Sheet2", usecols=list(range(6)), ttl=5)
+spreadsheet_id = "1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
+conn = st.connection("gsheets", type=GSheetsConnection, spreadsheet_id=spreadsheet_id)
+
 existing_data = existing_data.dropna(how="all")
 
 
