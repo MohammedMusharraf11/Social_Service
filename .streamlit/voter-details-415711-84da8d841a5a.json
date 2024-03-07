@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "voter-details-415711",
+  "private_key_id": "84da8d841a5adf3f1d679d08d77afb04eddb71bf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC1fuz4rFvWYr6a\nLE824lTV6UyrikTcc91hiOajr9o3e6wwo7X5MpXi5Ra5NqcxaoK1SnxLGzQy5O9r\nbDvhxKL99Z0G+820UX4LBe7Z2KQSwhWm/RMTKUfxizP6QGv8uYyritRFB1HnxkbC\nax3DMT3CN6KDD22b3S+vI0o+xFyJuOUHRPCZdlcSbZ/O8z+pE+mSLrwJ9Y2wTaGe\nJU/jNugN7kD4isLV0YVKuSve7S4eORLOTY3O9PjtHcImu3ZTivjsYKMymg77QQ78\nzQ2x1zCJ9O3wZdQ5IRgwWO5jVTr+IbqfIT0750WqkUsV3vb8XdV2XpOoFafHESqu\nGeu0Wym5AgMBAAECggEAEUXEDaJxlwSMuSVwYHvHsRfj2QtupEBOmEKsGHXa4Z7e\ncz6RSeb7hr1gnT3LSZOmXtR44bj0Dcfl1SZWyJSrIlommIyMNhXvVeM5qPfKHZLk\n9qBtGUy7cQxbZPyOil2qOoUa0Hry24juIQCKs5HTG9GpoKluOAAj0pocLb8IQ37w\n913HoiwHaQ8WVZm7Q3HZ6nw+GuoXiShMpkKOdgLpoCweqrVjskatxxHJwZ9RAEh+\nf9ITJ4Ax7dE7krSNgZKYf1T/uYkVUFsu9tINyXiLUk9hF0I8/KlU+uvQz/3GJlQJ\nPATT8oHCSgco5sNYbNetNfWMrBVw7u9zG0xOcCMIgQKBgQDqzK9ZwjVsxd0HjWNa\n/jDSwk2mfOy7fE/ThSVGGSVhGXAs++FkevYP040FSfxiz8JI+g7uuhWRDGeespQB\nVklPKwvoSViT91NmO8CAOk03+aMYjBVJEGLhX/bs5RJwBOpnZYbXZXd7esyMp5xl\nYHH4xBEa9V0O42fapFVUITjlKQKBgQDF4iRYVKk6igfGPV9smkJMsNepGkN02w2I\niziRtVNBdjTRlSSR9nHjUDJ6lbesqXt5+5/mZQ+dz5bDiIHpjZFezy8W1LMusacr\nz9Ma7cbujf4LIpZkiiFvfL2hSnAE4mMjcik8skmqwSyCbO+7Qy1TyLkmDDyEL93u\nXEsRTBCiEQKBgQCVClhEIYLICNDEensWx0M2hR/FDoc2ezIwkdOXK18Ow5bw9vGb\nVnHame5p7QzHrBknOZNA9d26tKURl0lbj+n41to4GFahldzaiBMpUdiyL0PX0ROx\nzTT22nNi7AVIFda0yz1MfJvbRZeRsNMVhqLRxaMV+amYScEiiC2huXTkAQKBgQCA\n6fVxkh35ZAjyjfMHpmtA2Qh2QwTlMPvdE43T5wQJJn/8daQwbxP82bc5AyZ4lqU5\nb8LY7sfAsIdwdRLlW3P0BxePURw2dEgLE8ZcycEKkniJOowtjYuAvQww8nSNygp6\nAhp5T1EMq/JaOavoHDiAV8i+z8Pw/dogOgIxj5NacQKBgANnAffssVGpqNgLdo84\nWjwXBs6VCWv0jqexfPIRULQdtuLC0Fp7FzADmDEW7D0OLQHCwlkYFdySpttuwds9\nV7qXRvyJPxbNI9k/DCk0gkSxQbIZ+J5M7ba+x2YvEhpI1ITssDA45FezgQiHqi15\nTqo3TH7eHOPOviyVVUjxPe+w\n-----END PRIVATE KEY-----\n",
+  "client_email": "gsheets-py-access@voter-details-415711.iam.gserviceaccount.com",
+  "client_id": "118432962283417776997",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gsheets-py-access%40voter-details-415711.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
