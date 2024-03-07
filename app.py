@@ -6,8 +6,8 @@ import pandas as pd
 st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="centered", initial_sidebar_state="auto")
 
 st.title("Survey Of Voters")
-id="1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
-conn = st.connection("gsheets", type=GSheetsConnection, spreadsheet_id=id)
+spreadsheet_id = "1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
+conn = st.connection("gsheets", type=GSheetsConnection, spreadsheet_id=spreadsheet_id)
 
 existing_data = conn.read(worksheet="Data", usecols=list(range(10)), ttl=5)  # Read all 10 columns
 existing_data = existing_data.dropna(how="all")
