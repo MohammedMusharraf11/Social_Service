@@ -9,7 +9,7 @@ st.title("Survey Of Voters")
 spreadsheet_id = "1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
 conn = st.connection("gsheets", type=GSheetsConnection, spreadsheet_id=spreadsheet_id)
 
-existing_data = conn.read(worksheet="Data", usecols=list(range(10)), ttl=5)  # Read all 10 columns
+existing_data = conn.read(worksheet="VoterSurvey", usecols=list(range(10)), ttl=5)  # Read all 10 columns
 existing_data = existing_data.dropna(how="all")
 
 with st.form(key="Voters_Form"):
@@ -60,5 +60,5 @@ with st.form(key="Voters_Form"):
             existing_data = pd.concat([existing_data, vendor_data], ignore_index=True)
 
         # Update the worksheet
-        conn.update(worksheet="Data", data=existing_data)
+        conn.update(worksheet="VoterSurvey", data=existing_data)
         st.success("Voters Details Submitted Successfully!!")
