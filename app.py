@@ -1,7 +1,6 @@
 import streamlit as st
-from csv import DictWriter
-from streamlit_gsheets import GSheetsConnection
 import pandas as pd
+from streamlit_gsheets import GSheetsConnection
 
 st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="centered", initial_sidebar_state="auto")
 
@@ -24,14 +23,12 @@ with st.form(key="Voters_Form"):
     ph_no = st.text_input(label="Enter Phone Number")
     dis = st.selectbox("Select Status", ["YES","NA"])
     reason = st.text_input(label="Enter Reason for Discontinuity")
-    # epic_no = st.text_input(label="Enter Epic Number")
 
     st.markdown("**required*")
     submit_button = st.form_submit_button(label="Submit Details")
-    vendor_data = pd.DataFrame()
 
     if submit_button:
-        vendor_data = pd.DataFrame(
+        new_data = pd.DataFrame(
             [
                 {
                     "Name": name,
@@ -39,28 +36,18 @@ with st.form(key="Voters_Form"):
                     "Year": year,
                     "Institution": school_clg,
                     "Street Name": street_name,
+                    "Part Number": part_no,
                     "Waqt": waqt,
                     "Phone Number": ph_no,
                     "Discontinued": dis,
                     "Reason": reason,
-                    # "Epic Number": epic_no,
                 }
             ]
         )
 
-        # Find the index of the row to be updated (if it exists)
-        # update_index = existing_data[
-        #     (existing_data["Building Name or Number"] == building_name) & (existing_data["Floor"] == floor)
-        # ].index
-
-        # # If the row exists, update the values; otherwise, add a new row
-        # if not update_index.empty:
-        #     existing_data.loc[update_index, ["Serial Number", "Status", "Epic Number", "Phone Number"]] = vendor_data[
-        #         ["Serial Number", "Status", "Epic Number", "Phone Number"]
-        #     ].values
-        # else:
-        #     existing_data = pd.concat([existing_data, vendor_data], ignore_index=True)
+        # Append the new data to the existing data
+        updated_data = pd.concat([existing_data, new_data], ignore_index=True)
 
         # Update the worksheet
-        conn.update(worksheet="VoterSurvey", data=existing_data)
+        conn.update(worksheet="VoterSurvey", data=updated_data)
         st.success("Voters Details Submitted Successfully!!")
