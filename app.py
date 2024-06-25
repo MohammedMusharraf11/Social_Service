@@ -16,11 +16,11 @@ with st.form(key="Voters_Form"):
     name = st.text_input(label="Student Name")
     class_ = st.text_input(label="Current Class")
     year = st.text_input(label="Year")
-    school_clg = st.text_input(label="Enter School Name")
+    school_clg = st.text_input(label="Enter Institution Name")
     street_name = st.selectbox("Select Street Name", ["Shakkel Bhai ki galli", "Irshad Bhai","Masjid ki galli","Masjid opposite","PG galli","Jandey ki galli","Mushrraf ki galli","Nala Galli","Misc"])
     waqt = st.selectbox("Select Waqt", ["3-Days", "40-Days", "4-months","NA"])
     ph_no = st.text_input(label="Enter Phone Number")
-    dis = st.selectbox("Select Status", ["YES","NA"])
+    dis = st.selectbox("Is the student Discontinued?", ["NA","YES"])
     reason = st.text_input(label="Enter Reason for Discontinuity")
 
     st.markdown("**required*")
