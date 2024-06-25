@@ -5,8 +5,8 @@ import pandas as pd
 
 st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="centered", initial_sidebar_state="auto")
 
-st.title("Survey Of Voters")
-st.title("Survey Of Voters2")
+st.title("Students List")
+
 # spreadsheet_id = "1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
 conn = st.connection("gsheets", type=GSheetsConnection)
 
@@ -14,16 +14,17 @@ existing_data = conn.read(worksheet="VoterSurvey", usecols=list(range(10)), ttl=
 existing_data = existing_data.dropna(how="all")
 
 with st.form(key="Voters_Form"):
-    building_name = st.text_input(label="Building Name/No")
-    floor = st.text_input(label="Floor No")
-    voters_name = st.text_input(label="Voters Name")
-    no_of_voters = st.text_input(label="Total No of Voters")
+    name = st.text_input(label="Student Name")
+    class_ = st.text_input(label="Current Class")
+    year = st.text_input(label="Year")
+    school_clg = st.text_input(label="Enter School Name")
+    street_name = st.selectbox("Select Street Name", ["Shakkel Bhai ki galli", "Irshad Bhai","Masjid ki galli","Masjid opposite","PG galli","Jandey ki galli","Mushrraf ki galli","Nala Galli","Misc"])
     part_no = st.text_input(label="Enter Part Number")
-    part_name = st.selectbox("Select Part Name", ["ILMA School", "Newton School"," "])
-    status = st.selectbox("Select Status", ["Active", "Inactive"])
+    waqt = st.selectbox("Select Waqt", ["3-Days", "40-Days", "4-months","NA"])
     ph_no = st.text_input(label="Enter Phone Number")
-    serial_no = st.text_input(label="Enter Serial Number")
-    epic_no = st.text_input(label="Enter Epic Number")
+    dis = st.selectbox("Select Status", ["YES","NA"])
+    reason = st.text_input(label="Enter Reason for Discontinuity")
+    # epic_no = st.text_input(label="Enter Epic Number")
 
     st.markdown("**required*")
     submit_button = st.form_submit_button(label="Submit Details")
@@ -33,32 +34,32 @@ with st.form(key="Voters_Form"):
         vendor_data = pd.DataFrame(
             [
                 {
-                    "Building Name or Number": building_name,
-                    "Floor": floor,
-                    "Total No of Voters": no_of_voters,
-                    "Voters Name": voters_name,
-                    "Part No": part_no,
-                    "Part Name": part_name,
-                    "Serial Number": serial_no,
-                    "Status": status,
-                    "Epic Number": epic_no,
+                    "Name": name,
+                    "Current Class": class_,
+                    "Year": year,
+                    "Institution": school_clg,
+                    "Street Name": street_name,
+                    "Waqt": waqt,
                     "Phone Number": ph_no,
+                    "Discontinued": dis,
+                    "Reason": reason,
+                    # "Epic Number": epic_no,
                 }
             ]
         )
 
         # Find the index of the row to be updated (if it exists)
-        update_index = existing_data[
-            (existing_data["Building Name or Number"] == building_name) & (existing_data["Floor"] == floor)
-        ].index
+        # update_index = existing_data[
+        #     (existing_data["Building Name or Number"] == building_name) & (existing_data["Floor"] == floor)
+        # ].index
 
-        # If the row exists, update the values; otherwise, add a new row
-        if not update_index.empty:
-            existing_data.loc[update_index, ["Serial Number", "Status", "Epic Number", "Phone Number"]] = vendor_data[
-                ["Serial Number", "Status", "Epic Number", "Phone Number"]
-            ].values
-        else:
-            existing_data = pd.concat([existing_data, vendor_data], ignore_index=True)
+        # # If the row exists, update the values; otherwise, add a new row
+        # if not update_index.empty:
+        #     existing_data.loc[update_index, ["Serial Number", "Status", "Epic Number", "Phone Number"]] = vendor_data[
+        #         ["Serial Number", "Status", "Epic Number", "Phone Number"]
+        #     ].values
+        # else:
+        #     existing_data = pd.concat([existing_data, vendor_data], ignore_index=True)
 
         # Update the worksheet
         conn.update(worksheet="VoterSurvey", data=existing_data)
