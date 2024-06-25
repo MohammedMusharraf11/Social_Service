@@ -2,14 +2,14 @@ import streamlit as st
 import pandas as pd
 from streamlit_gsheets import GSheetsConnection
 
-st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="centered", initial_sidebar_state="auto")
+st.set_page_config(page_title="Students List", page_icon="🎓", layout="centered", initial_sidebar_state="auto")
 
 st.title("Students List")
 
 # spreadsheet_id = "1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-existing_data = conn.read(worksheet="VoterSurvey", usecols=list(range(10)), ttl=5)  # Read all 10 columns
+existing_data = conn.read(worksheet="StudentsList", usecols=list(range(10)), ttl=5)  # Read all 10 columns
 existing_data = existing_data.dropna(how="all")
 
 with st.form(key="Voters_Form"):
@@ -48,5 +48,5 @@ with st.form(key="Voters_Form"):
         updated_data = pd.concat([existing_data, new_data], ignore_index=True)
 
         # Update the worksheet
-        conn.update(worksheet="VoterSurvey", data=updated_data)
-        st.success("Voters Details Submitted Successfully!!")
+        conn.update(worksheet="StudentsList", data=updated_data)
+        st.success("Student Details Submitted Successfully!!")
