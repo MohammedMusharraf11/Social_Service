@@ -18,7 +18,6 @@ with st.form(key="Voters_Form"):
     year = st.text_input(label="Year")
     school_clg = st.text_input(label="Enter School Name")
     street_name = st.selectbox("Select Street Name", ["Shakkel Bhai ki galli", "Irshad Bhai","Masjid ki galli","Masjid opposite","PG galli","Jandey ki galli","Mushrraf ki galli","Nala Galli","Misc"])
-    part_no = st.text_input(label="Enter Part Number")
     waqt = st.selectbox("Select Waqt", ["3-Days", "40-Days", "4-months","NA"])
     ph_no = st.text_input(label="Enter Phone Number")
     dis = st.selectbox("Select Status", ["YES","NA"])
