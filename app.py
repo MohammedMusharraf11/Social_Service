@@ -35,7 +35,7 @@ with st.form(key="Voters_Form"):
                     "Year": year,
                     "Institution": school_clg,
                     "Street Name": street_name,
-                    "Part Number": part_no,
+                    # "Part Number": part_no,
                     "Waqt": waqt,
                     "Phone Number": ph_no,
                     "Discontinued": dis,
