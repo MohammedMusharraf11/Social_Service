@@ -6,6 +6,7 @@ import pandas as pd
 st.set_page_config(page_title="Voters-Details", page_icon="👆", layout="centered", initial_sidebar_state="auto")
 
 st.title("Survey Of Voters")
+st.title("Survey Of Voters2")
 # spreadsheet_id = "1mJp4L1qLpsBFlq3xkDJmLTebrRfLmN5WkYPAfnSbIHo"
 conn = st.connection("gsheets", type=GSheetsConnection)
 
